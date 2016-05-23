@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="FruitsnVegs">
     <head>
         <title>Fruit and Veggies</title>
         <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet">
@@ -10,17 +10,35 @@
         <script src="js/app.js"></script>
     </head>
     <body>
-        <div class="container">
+        <div class="container" ng-controller="HomeCtrl">
             <h1>Fruit and Veggies</h1>
             <div class="row">
                 <div class="col-sm-4">
                     col 1
+                    <ul>
+								<li ng-repeat="fruit in fruity">{{fruit}}</li>
+							</ul>
                 </div>
                 <div class="col-sm-4">
-                    col 2
+                    col 2 <hr>
+
+                    <ul>
+                        <ol ng-repeat="mid in middle" ng-if="show">
+	                        <button type="button" class="btn btn-default btn-sm" ng-click="makeFruit(mid)">
+							          <span class="glyphicon glyphicon-arrow-left"></span> Fruit
+							        </button>
+	        						{{mid}}
+	        						<button type="button" class="btn btn-default btn-sm pull-right" ng-click="makeVeg(mid)">Veg
+							          <span class="glyphicon glyphicon-arrow-right"></span>
+							        </button>
+        						</ol>
+                    </ul>
                 </div>
                 <div class="col-sm-4">
                     col 3
+                    <ul>
+								<li ng-repeat="veg in vegy">{{veg}}</li>
+							</ul>
                 </div>                        
             </div>
         </div>
