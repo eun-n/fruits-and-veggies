@@ -12,11 +12,14 @@
     <body>
         <div class="container" ng-controller="HomeCtrl">
             <h1>Fruit and Veggies</h1>
+            <button type="button" ng-click="checkwin()">Check</button>
+            <div ng-show="win">You Won!</div>
+            <div ng-hide="win">Not Yet!</div>
             <div class="row">
                 <div class="col-sm-4">
                     col 1
                     <ul>
-								<ol ng-repeat="fruit in fruity">{{fruit}}
+								<ol ng-repeat="fruit in fruity track by $index" ng-class="className">{{fruit}}
 									<button type="button" class="btn btn-default btn-sm" ng-click="makeMidF(fruit)">Mid
 							          <span class="glyphicon glyphicon-arrow-right"></span>
 							        </button>
@@ -27,7 +30,7 @@
                     col 2 <hr>
 
                     <ul>
-                        <ol ng-repeat="mid in middle" ng-if="show">
+                        <ol ng-repeat="mid in middle track by $index" ng-class="className">
 	                        <button type="button" class="btn btn-default btn-sm" ng-click="makeFruit(mid)">
 							          <span class="glyphicon glyphicon-arrow-left"></span> Fruit
 							        </button>
@@ -41,7 +44,7 @@
                 <div class="col-sm-4">
                     col 3
                     <ul>
-								<ol ng-repeat="veg in vegy">
+								<ol ng-repeat="veg in vegy track by $index" ng-class="className">
 									<button type="button" class="btn btn-default btn-sm" ng-click="makeMidV(veg)">Mid
 							          <span class="glyphicon glyphicon-arrow-left"></span>
 							        </button>

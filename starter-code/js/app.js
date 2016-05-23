@@ -1,9 +1,6 @@
 /* setup your angular app here */
 
 //debug stuff to show the app is loading and fruit / veggies are available
-console.log('App Started');
-console.log('Fruit count', fruit.length);
-console.log('Veggie count', vegetables.length);
 
 var fruitsandvegs = angular.module('FruitsnVegs', []);
 
@@ -23,16 +20,36 @@ $scope.vegetables = [
 
 $scope.show = true;
 
-$scope.middle = $scope.fruits.concat($scope.vegetables);
+function shuffle(array) {
+  var currentIndex = array.length, temporaryValue, randomIndex;
+
+  // While there remain elements to shuffle...
+  while (0 !== currentIndex) {
+
+    // Pick a remaining element...
+    randomIndex = Math.floor(Math.random() * currentIndex);
+    currentIndex -= 1;
+
+    // And swap it with the current element.
+    temporaryValue = array[currentIndex];
+    array[currentIndex] = array[randomIndex];
+    array[randomIndex] = temporaryValue;
+  }
+
+  return array;
+}
+$scope.middle = shuffle($scope.fruits.concat($scope.vegetables));
 
 $scope.fruity = [];
 $scope.vegy = [];
 
-var checkwin = function() {
-	if ($scope.middle === [] && $scope.fruity.sort() == $scope.fruits.sort() && $scope.vegy.sort() == $scope.vegetables.sort()) {
-			console.log("congratulations!");
-			}
-		}
+$scope.win=false;
+
+$scope.checkwin = function() {
+	if ($scope.fruity.sort().toString() == $scope.fruits.sort().toString() && $scope.vegy.sort().toString() == $scope.vegetables.sort().toString()) {
+			$scope.win=true;
+	}
+}
 
 $scope.makeFruit = function(a) {
 		$scope.fruity.push(a);
@@ -40,9 +57,10 @@ $scope.makeFruit = function(a) {
 			if($scope.middle[i]===a) {
 				$scope.middle.splice(i, 1);
 			}
+		} if($scope.fruits.indexOf(a) == -1) {
+			$scope.className = "red";
 		}
   		a= '';
-  		checkwin();
 	}
 
 	$scope.makeVeg = function(b) {
@@ -51,9 +69,10 @@ $scope.makeFruit = function(a) {
 			if($scope.middle[i]===b) {
 				$scope.middle.splice(i, 1);
 			}
+		}if($scope.vegetables.indexOf(b) == -1) {
+			$scope.className = "red";
 		}
   		b= '';
-  		checkwin();
 	}
 
 		$scope.makeMidF = function(c) {
@@ -62,7 +81,7 @@ $scope.makeFruit = function(a) {
 			if($scope.fruity[i]===c) {
 				$scope.fruity.splice(i, 1);
 			}
-		}
+		} $scope.className = "white";
   		c= '';
 	}
 
@@ -73,7 +92,7 @@ $scope.makeFruit = function(a) {
 			if($scope.vegy[i]===d) {
 				$scope.vegy.splice(i, 1);
 			}
-		}
+		} $scope.className = "white";
   		d= '';
 	}
 
