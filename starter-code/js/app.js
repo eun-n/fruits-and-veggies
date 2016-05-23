@@ -25,7 +25,14 @@ $scope.show = true;
 
 $scope.middle = $scope.fruits.concat($scope.vegetables);
 
-	$scope.fruity = [];
+$scope.fruity = [];
+$scope.vegy = [];
+
+var checkwin = function() {
+	if ($scope.middle === [] && $scope.fruity.sort() == $scope.fruits.sort() && $scope.vegy.sort() == $scope.vegetables.sort()) {
+			console.log("congratulations!");
+			}
+		}
 
 $scope.makeFruit = function(a) {
 		$scope.fruity.push(a);
@@ -35,9 +42,8 @@ $scope.makeFruit = function(a) {
 			}
 		}
   		a= '';
+  		checkwin();
 	}
-
-	$scope.vegy = [];
 
 	$scope.makeVeg = function(b) {
 		$scope.vegy.push(b);
@@ -47,6 +53,7 @@ $scope.makeFruit = function(a) {
 			}
 		}
   		b= '';
+  		checkwin();
 	}
 
 		$scope.makeMidF = function(c) {
@@ -69,4 +76,5 @@ $scope.makeFruit = function(a) {
 		}
   		d= '';
 	}
+
   }]);
