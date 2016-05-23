@@ -16,7 +16,11 @@
                 <div class="col-sm-4">
                     col 1
                     <ul>
-								<li ng-repeat="fruit in fruity">{{fruit}}</li>
+								<ol ng-repeat="fruit in fruity">{{fruit}}
+									<button type="button" class="btn btn-default btn-sm" ng-click="makeMidF(fruit)">Mid
+							          <span class="glyphicon glyphicon-arrow-right"></span>
+							        </button>
+								</ol>
 							</ul>
                 </div>
                 <div class="col-sm-4">
@@ -28,7 +32,7 @@
 							          <span class="glyphicon glyphicon-arrow-left"></span> Fruit
 							        </button>
 	        						{{mid}}
-	        						<button type="button" class="btn btn-default btn-sm pull-right" ng-click="makeVeg(mid)">Veg
+	        						<button type="button" class="btn btn-default btn-sm" ng-click="makeVeg(mid)">Veg
 							          <span class="glyphicon glyphicon-arrow-right"></span>
 							        </button>
         						</ol>
@@ -37,7 +41,12 @@
                 <div class="col-sm-4">
                     col 3
                     <ul>
-								<li ng-repeat="veg in vegy">{{veg}}</li>
+								<ol ng-repeat="veg in vegy">
+									<button type="button" class="btn btn-default btn-sm" ng-click="makeMidV(veg)">Mid
+							          <span class="glyphicon glyphicon-arrow-left"></span>
+							        </button>
+									{{veg}}
+								</ol>
 							</ul>
                 </div>                        
             </div>

@@ -48,4 +48,25 @@ $scope.makeFruit = function(a) {
 		}
   		b= '';
 	}
+
+		$scope.makeMidF = function(c) {
+		$scope.middle.push(c);
+		for(var i=0; i<$scope.fruity.length; i++) {
+			if($scope.fruity[i]===c) {
+				$scope.fruity.splice(i, 1);
+			}
+		}
+  		c= '';
+	}
+
+
+		$scope.makeMidV = function(d) {
+		$scope.middle.push(d);
+		for(var i=0; i<$scope.vegy.length; i++) {
+			if($scope.vegy[i]===d) {
+				$scope.vegy.splice(i, 1);
+			}
+		}
+  		d= '';
+	}
   }]);
