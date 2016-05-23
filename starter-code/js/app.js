@@ -20,6 +20,7 @@ $scope.vegetables = [
 
 $scope.show = true;
 
+//Fisher-Yates Shuffle function
 function shuffle(array) {
   var currentIndex = array.length, temporaryValue, randomIndex;
 
@@ -38,6 +39,8 @@ function shuffle(array) {
 
   return array;
 }
+
+
 $scope.middle = shuffle($scope.fruits.concat($scope.vegetables));
 
 $scope.fruity = [];
