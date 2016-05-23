@@ -6,17 +6,9 @@ var fruitsandvegs = angular.module('FruitsnVegs', []);
 
 fruitsandvegs.controller('HomeCtrl', ['$scope', function($scope) {
 
-$scope.fruits = [
-  'Apple',
-  'Apricot',
-  'Banana'
-  ];
+$scope.fruits = fruit.sort();
 
-$scope.vegetables = [
-  'Artichoke',
-  'Arugula',
-  'Asparagus'
-  ];
+$scope.vegetables = vegetables.sort();
 
 $scope.show = true;
 
